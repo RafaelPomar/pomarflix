@@ -11,7 +11,7 @@
       "videos": [
         {
           "titulo": "Pamonha de Milho receita caseira da Roça",
-          "url": "https://www.youtube.com/watch?v=lMPJ09E_rN0"
+          "url": "https://www.youtube.com/watch?v=ZY3-MFxVdEw&t=4s"
         },
         {
           "titulo": "SEO com React",
@@ -45,7 +45,7 @@
     },
     {
       "titulo": "Cozinha Árabe",
-      "cor": "#00C86F",
+      "cor": "#228B22",
       "link_extra": {
         "text": "Receitas de comidas árabes",
         "url": "https://www.alura.com.br/cursos-online-programacao"
