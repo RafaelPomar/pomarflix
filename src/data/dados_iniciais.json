@@ -44,10 +44,10 @@
       ]
     },
     {
-      "titulo": "Cozinha Árabe",
+      "titulo": "Back End",
       "cor": "#228B22",
       "link_extra": {
-        "text": "Receitas de comidas árabes",
+        "text": "Formação Back End na Alura",
         "url": "https://www.alura.com.br/cursos-online-programacao"
       },
       "videos": [

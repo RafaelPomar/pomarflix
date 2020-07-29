@@ -1,21 +1,24 @@
 import React from 'react';
 import Menu from '../../Components/Menu';
-import dados from '../../data/dados_iniciais.json';
+import dadosIniciais from '../../data/dados_iniciais.json';
 import BannerMain from '../../Components/BannerMain';
 import Carousel from '../../Components/Carousel';
 import Footer from '../../Components/Footer';
 
 function Home() {
   return (
-    <div>
+    <div style={{background: "#141414"}}>
      <Menu />
 
     <BannerMain
-      videoTitle={dados.categorias[0].videos[0].titulo}
-      url={dados.categorias[0].videos[0].url}
-      videoDescription={dados.categorias[0].videos[0].videoDescription}
+      videoTitle={dadosIniciais.categorias[0].videos[0].titulo}
+      url={dadosIniciais.categorias[0].videos[0].url}
+      videoDescription={dadosIniciais.categorias[0].videos[0].videoDescription}
     />
-    <Carousel category={dados.categorias[1]}/>
+
+    <Carousel ignoreFistVideo category={dadosIniciais.categorias[0]}/>
+    <Carousel category={dadosIniciais.categorias[1]}/>
+    
     <Footer/>
     </div>
   );
