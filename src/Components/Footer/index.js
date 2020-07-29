@@ -14,6 +14,13 @@ function Footer() {
           Imersão React da Alura
         </a>
       </p>
+      <p>
+        Criado por
+        {' '}
+        <a href="https://www.instagram.com/rafapomar/">
+        Rafael Pomar Schmidt
+        </a>
+      </p>
     </FooterBase>
   );
 }
