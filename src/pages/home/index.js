@@ -1,26 +1,51 @@
-import React from 'react';
-import Menu from '../../Components/Menu';
-import dadosIniciais from '../../data/dados_iniciais.json';
+import React, { useEffect, useState } from 'react';
 import BannerMain from '../../Components/BannerMain';
 import Carousel from '../../Components/Carousel';
-import Footer from '../../Components/Footer';
+import PageDefault from '../../Components/PageDefault';
+import categoriasRepositoreis from '../../repositories/categorias';
 
 function Home() {
+  const [dadosIniciais, setDadosIniciais] = useState([]);
+
+  useEffect(() => {
+    categoriasRepositoreis.getAllWithVideos()
+      .then((categoriasComVideos) => {
+        setDadosIniciais(categoriasComVideos);
+      })
+      .catch((err) => {
+        console.log(err.message);
+      });
+  }, []);
+
   return (
-    <div style={{background: "#141414"}}>
-     <Menu />
+    <PageDefault paddingAll={0}>
 
-    <BannerMain
-      videoTitle={dadosIniciais.categorias[0].videos[0].titulo}
-      url={dadosIniciais.categorias[0].videos[0].url}
-      videoDescription={dadosIniciais.categorias[0].videos[0].videoDescription}
-    />
+      {dadosIniciais.length === 0 && (<div>Loading...</div>)}
 
-    <Carousel ignoreFistVideo category={dadosIniciais.categorias[0]}/>
-    <Carousel category={dadosIniciais.categorias[1]}/>
-    
-    <Footer/>
-    </div>
+      {dadosIniciais.map((categoria, indice) => {
+        if (indice === 0) {
+          return (
+            <div key={categoria.id}>
+              <BannerMain
+                videoTitle={dadosIniciais[0].videos[0].titulo}
+                url={dadosIniciais[0].videos[0].url}
+                videoDescription="O que é front end?"
+              />
+              <Carousel
+                category={dadosIniciais[0]}
+              />
+            </div>
+          );
+        }
+        return (
+          <Carousel
+            key={categoria.id}
+            category={categoria}
+          />
+        );
+      })}
+
+    </PageDefault>
   );
 }
 
